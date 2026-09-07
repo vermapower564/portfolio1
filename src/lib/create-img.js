@@ -1,0 +1,13 @@
+const fs = require('fs');
+const path = require('path');
+
+const dir = path.join(__dirname, '..', '..', 'public', 'images');
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir, { recursive: true });
+}
+
+// Valid 200x200 PNG binary buffer
+const base64Png = "iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAJ/SURBVHhe7dUxAcAwDMCw96+8Gvo1UCRcMvROZnY+3yVJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIkKUmSkiQpSZKSJClJkpIk+QEBhQkYh/uDlwAAAABJRU5ErkJggg==";
+
+fs.writeFileSync(path.join(dir, 'roushan-profile.jpg'), Buffer.from(base64Png, 'base64'));
+console.log("Successfully created valid binary roushan-profile.jpg");
