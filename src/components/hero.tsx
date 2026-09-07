@@ -1,11 +1,14 @@
 "use client";
 
-import React from "react";
-import { ArrowRight, Code2, Database, ShieldCheck, Cpu, ChevronDown, Sparkles } from "lucide-react";
+import React, { useState } from "react";
+import Image from "next/image";
+import { ArrowRight, Code2, Database, ShieldCheck, Cpu, ChevronDown, UserCheck } from "lucide-react";
 import { profile } from "@/data/profile";
 import { DeveloperConsole } from "./developer-console";
 
 export function Hero() {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section id="hero" className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
       {/* Dark Technical Background Elements */}
@@ -19,13 +22,43 @@ export function Hero() {
           
           {/* Left Hero Column */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            {/* Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 dark:bg-sky-500/15 border border-sky-500/30 text-sky-600 dark:text-sky-400 font-mono text-xs font-medium">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span>Available for Full-Stack & Engineering Roles</span>
+            
+            {/* Status Pill & Profile Avatar Group */}
+            <div className="flex items-center gap-4 flex-wrap">
+              {/* Profile Image / Avatar Badge */}
+              <div className="relative group shrink-0">
+                <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-tr from-sky-500 via-indigo-500 to-emerald-400 opacity-60 blur-sm group-hover:opacity-100 transition duration-300"></div>
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-slate-900 border-2 border-slate-700/80 dark:border-slate-800 overflow-hidden shadow-xl shadow-sky-950/20 flex items-center justify-center">
+                  {!imageError ? (
+                    <Image
+                      src="/images/roushan-profile.jpg"
+                      alt="Roushan Kumar Verma — Full-Stack Developer"
+                      width={120}
+                      height={120}
+                      priority
+                      className="w-full h-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
+                      onError={() => setImageError(true)}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-sky-600 via-indigo-600 to-slate-900 flex flex-col items-center justify-center text-white font-mono">
+                      <span className="text-lg font-extrabold tracking-tight">RV</span>
+                      <span className="text-[9px] opacity-75">DEV</span>
+                    </div>
+                  )}
+
+                  {/* Online / Active Badge Indicator */}
+                  <span className="absolute bottom-1 right-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-slate-950 shadow-md"></span>
+                </div>
+              </div>
+
+              {/* Status Pill */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 dark:bg-sky-500/15 border border-sky-500/30 text-sky-600 dark:text-sky-400 font-mono text-xs font-medium">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>Available for Full-Stack & Engineering Roles</span>
+              </div>
             </div>
 
             {/* Name & Headline */}
@@ -33,8 +66,8 @@ export function Hero() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1]">
                 Roushan Kumar <span className="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 via-indigo-500 to-cyan-400">Verma</span>
               </h1>
-              <p className="text-xl sm:text-2xl font-mono text-sky-600 dark:text-sky-400 font-semibold tracking-tight">
-                Full-Stack Developer
+              <p className="text-xl sm:text-2xl font-mono text-sky-600 dark:text-sky-400 font-semibold tracking-tight flex items-center gap-2">
+                <span>Full-Stack Developer</span>
               </p>
             </div>
 
