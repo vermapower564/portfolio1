@@ -1,59 +1,38 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Sun, Moon, Menu, X, Terminal, Code2, Search } from "lucide-react";
 import { useTheme } from "./theme-provider";
 import { CommandPalette } from "./command-palette";
 
 const navItems = [
-  { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Code Suite", href: "#code-suite" },
-  { label: "Journey", href: "#journey" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About", href: "/about" },
+  { label: "Skills", href: "/skills" },
+  { label: "Projects", href: "/projects" },
+  { label: "Journey", href: "/journey" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export function Navbar() {
   const { resolvedTheme, setTheme } = useTheme();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("hero");
   const [commandPaletteOpen, setCommandPaletteOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-
-      // Section tracking
-      const sections = navItems.map((item) => item.href.substring(1));
-      const scrollPosition = window.scrollY + 120;
-
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i]);
-        if (element && element.offsetTop <= scrollPosition) {
-          setActiveSection(sections[i]);
-          break;
-        }
-      }
+      setScrolled(window.scrollY > 20);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent background scroll when mobile menu is open
   useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    document.body.style.overflow = mobileMenuOpen ? "hidden" : "auto";
   }, [mobileMenuOpen]);
 
   const toggleTheme = () => {
@@ -72,8 +51,8 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a
-              href="#hero"
+            <Link
+              href="/"
               className="flex items-center gap-2.5 group focus:outline-none focus:ring-2 focus:ring-sky-500 rounded-lg p-1"
             >
               <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 via-indigo-500 to-emerald-400 p-0.5 shadow-md shadow-sky-500/20 group-hover:scale-105 transition-transform duration-300">
@@ -89,14 +68,14 @@ export function Navbar() {
                   FULL-STACK ARCHITECT
                 </span>
               </div>
-            </a>
+            </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-1 bg-slate-100/80 dark:bg-slate-900/60 p-1.5 rounded-full border border-slate-200/80 dark:border-slate-800/60 backdrop-blur-sm">
               {navItems.map((item) => {
-                const isActive = activeSection === item.href.substring(1);
+                const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
                 return (
-                  <a
+                  <Link
                     key={item.href}
                     href={item.href}
                     className={`px-3.5 py-1.5 rounded-full text-xs font-mono font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 ${
@@ -106,7 +85,7 @@ export function Navbar() {
                     }`}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 );
               })}
             </nav>
@@ -140,13 +119,13 @@ export function Navbar() {
               </button>
 
               {/* Contact CTA */}
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 className="hidden lg:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-950 font-mono text-xs font-semibold hover:bg-sky-600 dark:hover:bg-sky-400 dark:hover:text-slate-950 transition-colors shadow-md shadow-black/10 focus:outline-none focus:ring-2 focus:ring-sky-500"
               >
                 <Code2 className="w-3.5 h-3.5" />
                 <span>Hire Roushan</span>
-              </a>
+              </Link>
 
               {/* Mobile Menu Button */}
               <button
@@ -168,9 +147,9 @@ export function Navbar() {
                 Navigation Menu
               </p>
               {navItems.map((item) => {
-                const isActive = activeSection === item.href.substring(1);
+                const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
                 return (
-                  <a
+                  <Link
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
@@ -182,7 +161,7 @@ export function Navbar() {
                   >
                     <span>{item.label}</span>
                     {isActive && <span className="w-2 h-2 rounded-full bg-sky-400"></span>}
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -199,14 +178,14 @@ export function Navbar() {
                 <span>Search Command Palette (Ctrl+K)</span>
               </button>
 
-              <a
-                href="#contact"
+              <Link
+                href="/contact"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-sky-500 text-white font-mono text-sm font-semibold hover:bg-sky-400 transition-colors shadow-lg shadow-sky-500/20"
               >
                 <Code2 className="w-4 h-4" />
                 <span>Let's Connect</span>
-              </a>
+              </Link>
             </div>
           </div>
         )}

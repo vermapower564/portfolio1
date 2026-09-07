@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
-import { ExternalLink, Github, Layers, ArrowUpRight, Cpu, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, Github, Cpu, ShieldCheck, ArrowRight } from "lucide-react";
 import { projects, Project } from "@/data/projects";
 import { ProjectModal } from "./project-modal";
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedModalProject, setSelectedModalProject] = useState<Project | null>(null);
   const [filterCategory, setFilterCategory] = useState<string>("All");
 
   const categories = ["All", "Enterprise / ERP", "EdTech", "E-Commerce", "Full-Stack"];
@@ -16,7 +17,7 @@ export function Projects() {
     : projects.filter((p) => p.category === filterCategory);
 
   return (
-    <section id="projects" className="py-20 bg-slate-50/50 dark:bg-slate-950/40 border-y border-slate-200/80 dark:border-slate-800/80">
+    <section id="projects" className="py-24 bg-slate-50/50 dark:bg-slate-950/40 border-y border-slate-200/80 dark:border-slate-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
@@ -71,7 +72,9 @@ export function Projects() {
                 {/* Project Title & Short Desc */}
                 <div className="space-y-2">
                   <h3 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight group-hover:text-sky-500 transition-colors">
-                    {project.name}
+                    <Link href={`/projects/${project.id}`}>
+                      {project.name}
+                    </Link>
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
                     {project.shortDescription}
@@ -110,15 +113,23 @@ export function Projects() {
 
               {/* Bottom Actions */}
               <div className="pt-6 mt-6 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-between">
-                <button
-                  onClick={() => setSelectedProject(project)}
+                <Link
+                  href={`/projects/${project.id}`}
                   className="px-4 py-2 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-mono text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-md shadow-sky-600/20 focus:outline-none focus:ring-2 focus:ring-sky-500"
                 >
                   <Cpu className="w-3.5 h-3.5" />
-                  <span>Case Study & Architecture</span>
-                </button>
+                  <span>View Case Study Page</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => setSelectedModalProject(project)}
+                    className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-sky-500 text-xs font-mono transition-colors"
+                    title="Quick Preview Modal"
+                  >
+                    Modal
+                  </button>
                   {project.githubUrl && (
                     <a
                       href={project.githubUrl}
@@ -150,10 +161,10 @@ export function Projects() {
 
       </div>
 
-      {/* Case Study Modal */}
+      {/* Quick Case Study Modal */}
       <ProjectModal
-        project={selectedProject}
-        onClose={() => setSelectedProject(null)}
+        project={selectedModalProject}
+        onClose={() => setSelectedModalProject(null)}
       />
     </section>
   );

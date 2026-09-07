@@ -61,7 +61,7 @@ export const projects: Project[] = [
       database: "MySQL / TiDB Cloud managed via Prisma ORM",
       services: ["Cloudinary File Storage", "Automated Email Alerts"]
     },
-    githubUrl: "https://github.com/roushanverma/operations-management-system",
+    githubUrl: "https://github.com/vermapower564/operations-management-system",
     liveUrl: "https://oms-platform.demo.dev"
   },
   {
@@ -98,7 +98,7 @@ export const projects: Project[] = [
       database: "MySQL Database mapped via Prisma ORM",
       services: ["Cloudinary Media Cloud"]
     },
-    githubUrl: "https://github.com/roushanverma/zyvora-ecommerce",
+    githubUrl: "https://github.com/vermapower564/zyvora-ecommerce",
     liveUrl: "https://zyvora-store.demo.dev"
   },
   {
@@ -137,7 +137,7 @@ export const projects: Project[] = [
       database: "TiDB Cloud Distributed MySQL",
       services: ["Cloudinary Asset CDN", "Nodemailer SMTP Dispatcher"]
     },
-    githubUrl: "https://github.com/roushanverma/backbone-academy",
+    githubUrl: "https://github.com/vermapower564/backbone-academy",
     liveUrl: "https://backbone-academy.demo.dev"
   },
   {
@@ -173,7 +173,7 @@ export const projects: Project[] = [
       database: "MySQL with Prisma ORM Schemas",
       services: ["Vercel Edge Network"]
     },
-    githubUrl: "https://github.com/roushanverma/snapclass-app",
+    githubUrl: "https://github.com/vermapower564/snapclass-app",
     liveUrl: "https://snapclass.demo.dev"
   }
 ];
