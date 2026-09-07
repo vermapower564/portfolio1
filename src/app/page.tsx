@@ -6,6 +6,7 @@ import { About } from "@/components/about";
 import { WhatIBuild } from "@/components/what-i-build";
 import { Skills } from "@/components/skills";
 import { EngineeringApproach } from "@/components/engineering-approach";
+import { CodeSuite } from "@/components/code-suite";
 import { Journey } from "@/components/journey";
 import { ResumeSection } from "@/components/resume-section";
 import { Contact } from "@/components/contact";
@@ -34,23 +35,26 @@ export default function HomePage() {
         {/* 6. What I Build Section */}
         <WhatIBuild />
 
-        {/* 7. Technical Skills & Skill-to-Project Cross Filtering */}
+        {/* 7. Technical Skills & Cross Filtering */}
         <Skills />
 
         {/* 8. Engineering Principles & Standards */}
         <EngineeringApproach />
 
-        {/* 9. Development Journey & Academic History */}
+        {/* 9. Developer Depth Suite (Code, API Playground, SQL Workbench) */}
+        <CodeSuite />
+
+        {/* 10. Development Journey & Academic History */}
         <Journey />
 
-        {/* 10. Technical Profile & Resume CTA */}
+        {/* 11. Technical Profile & Resume CTA */}
         <ResumeSection />
 
-        {/* 11. Contact Form & Direct Channels */}
+        {/* 12. Contact Form & Direct Channels */}
         <Contact />
       </main>
 
-      {/* 12. Footer */}
+      {/* 13. Footer */}
       <Footer />
     </div>
   );
