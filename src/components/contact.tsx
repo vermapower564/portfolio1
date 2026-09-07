@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Mail, Github, Linkedin, Send, CheckCircle2, AlertCircle, Loader2, MessageSquare } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, CheckCircle2, AlertCircle, Loader2, MessageSquare, PhoneCall } from "lucide-react";
 import { profile } from "@/data/profile";
 
 export function Contact() {
@@ -66,7 +66,7 @@ export function Contact() {
             Let's Build Production Software Together
           </h2>
           <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
-            Have a project, engineering role, or full-stack opportunity? Drop a message below or connect directly.
+            Have a project, engineering role, or full-stack opportunity? Drop a message below or call directly.
           </p>
         </div>
 
@@ -82,6 +82,23 @@ export function Contact() {
               </h3>
 
               <div className="space-y-4">
+                {/* Direct Call / Phone */}
+                <a
+                  href={profile.phoneTel}
+                  className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 hover:border-emerald-500 transition-colors group"
+                >
+                  <div className="p-3 rounded-lg bg-emerald-500/10 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-mono text-slate-400">Phone / Click to Call</div>
+                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 font-mono flex items-center gap-2">
+                      <span>{profile.phone}</span>
+                      <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
+                    </div>
+                  </div>
+                </a>
+
                 {/* Email */}
                 <a
                   href={`mailto:${profile.email}`}
@@ -107,8 +124,8 @@ export function Contact() {
                     <Github className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-slate-400">GitHub Profile</div>
-                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 font-mono">github.com/roushanverma</div>
+                    <div className="text-xs font-mono text-slate-400">GitHub Profile ({profile.displayName})</div>
+                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 font-mono">github.com/vermapower564</div>
                   </div>
                 </a>
 

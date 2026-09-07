@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Terminal, ArrowUp, Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+import { Terminal, ArrowUp, Github, Linkedin, Mail, Phone } from "lucide-react";
 import { profile } from "@/data/profile";
 
 export function Footer() {
@@ -23,20 +24,23 @@ export function Footer() {
               <span className="font-mono font-bold text-white text-base">
                 Roushan Kumar Verma
               </span>
+              <span className="text-xs font-mono text-sky-400">
+                ({profile.displayName})
+              </span>
             </div>
             <p className="text-slate-400 max-w-md">
-              Full-Stack Developer • MCA (2024–2026) & B.Sc. Mathematics • Building enterprise RBAC platforms, REST APIs, and modern responsive UIs.
+              Full-Stack Developer • MCA (2024–2026 Ranchi University) & B.Sc. Mathematics • Building enterprise RBAC platforms, REST APIs, and modern responsive UIs.
             </p>
           </div>
 
           {/* Quick Nav Links */}
           <nav className="flex items-center gap-6 font-mono text-xs text-slate-300">
-            <a href="#hero" className="hover:text-sky-400 transition-colors">Home</a>
-            <a href="#about" className="hover:text-sky-400 transition-colors">About</a>
-            <a href="#skills" className="hover:text-sky-400 transition-colors">Skills</a>
-            <a href="#projects" className="hover:text-sky-400 transition-colors">Projects</a>
-            <a href="#journey" className="hover:text-sky-400 transition-colors">Journey</a>
-            <a href="#contact" className="hover:text-sky-400 transition-colors">Contact</a>
+            <Link href="/" className="hover:text-sky-400 transition-colors">Home</Link>
+            <Link href="/about" className="hover:text-sky-400 transition-colors">About</Link>
+            <Link href="/skills" className="hover:text-sky-400 transition-colors">Skills</Link>
+            <Link href="/projects" className="hover:text-sky-400 transition-colors">Projects</Link>
+            <Link href="/journey" className="hover:text-sky-400 transition-colors">Journey</Link>
+            <Link href="/contact" className="hover:text-sky-400 transition-colors">Contact</Link>
           </nav>
 
           {/* Social Links */}
@@ -66,13 +70,20 @@ export function Footer() {
             >
               <Mail className="w-4 h-4" />
             </a>
+            <a
+              href={profile.phoneTel}
+              aria-label="Call Roushan"
+              className="p-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-emerald-400 hover:border-emerald-500/40 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+            </a>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-slate-500">
           <div>
-            © {new Date().getFullYear()} Roushan Kumar Verma. All rights reserved. Production-Ready Portfolio Architecture.
+            © {new Date().getFullYear()} Roushan Kumar Verma ({profile.displayName}). Phone: <a href={profile.phoneTel} className="hover:text-emerald-400 transition-colors">{profile.phone}</a>. All rights reserved.
           </div>
 
           <button
