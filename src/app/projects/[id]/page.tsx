@@ -35,7 +35,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-950 text-slate-100 font-sans antialiased">
+    <div className="min-h-screen flex flex-col bg-stone-50 dark:bg-[#0f0a0d] text-stone-900 dark:text-stone-100 font-sans antialiased">
       <Navbar />
 
       <main className="flex-1 pt-28 pb-20">
@@ -45,34 +45,34 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
           <div>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white font-mono text-xs transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-stone-900 border border-stone-300 dark:border-rose-950/60 text-stone-700 dark:text-stone-300 hover:text-rose-900 dark:hover:text-rose-400 font-mono text-xs transition-colors"
             >
-              <ArrowLeft className="w-4 h-4 text-sky-400" />
+              <ArrowLeft className="w-4 h-4 text-rose-900 dark:text-rose-400" />
               <span>Back to Projects</span>
             </Link>
           </div>
 
           {/* Header Card */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-slate-900/90 border border-slate-800 shadow-2xl space-y-6">
+          <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-rose-950/60 shadow-lg space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
-              <span className="px-3 py-1 rounded-full bg-sky-500/10 text-sky-400 font-mono text-xs font-semibold">
+              <span className="px-3 py-1 rounded-full bg-rose-900/10 dark:bg-rose-950/40 text-rose-900 dark:text-rose-300 border border-rose-900/20 font-mono text-xs font-semibold">
                 {project.badge}
               </span>
-              <span className="text-xs font-mono text-slate-500">
+              <span className="text-xs font-mono text-stone-500">
                 Category: {project.category}
               </span>
             </div>
 
             <div className="space-y-3">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 dark:text-white tracking-tight">
                 {project.name}
               </h1>
-              <p className="text-lg sm:text-xl font-mono text-sky-400 font-medium">
+              <p className="text-lg sm:text-xl font-mono text-rose-900 dark:text-rose-400 font-medium">
                 {project.tagline}
               </p>
             </div>
 
-            <p className="text-base text-slate-300 leading-relaxed font-sans">
+            <p className="text-base text-stone-700 dark:text-stone-300 leading-relaxed font-sans">
               {project.overview}
             </p>
 
@@ -83,7 +83,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   href={project.githubUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs font-semibold flex items-center gap-2 border border-slate-700 transition-colors"
+                  className="px-5 py-3 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-900 dark:text-white font-mono text-xs font-semibold flex items-center gap-2 border border-stone-300 dark:border-stone-700 transition-colors"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub Repository</span>
@@ -94,7 +94,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-mono text-xs font-semibold flex items-center gap-2 transition-colors shadow-lg shadow-sky-600/20"
+                  className="px-5 py-3 rounded-xl bg-rose-900 hover:bg-rose-950 text-white font-mono text-xs font-semibold flex items-center gap-2 transition-colors shadow-sm"
                 >
                   <ExternalLink className="w-4 h-4" />
                   <span>Live Production Demo</span>

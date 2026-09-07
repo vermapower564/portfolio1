@@ -19,13 +19,13 @@ export function TrustStrip() {
   ];
 
   return (
-    <section className="py-6 bg-slate-900/90 text-slate-300 border-y border-slate-800/80 backdrop-blur-md">
+    <section className="py-6 bg-[#0f0a0d] text-stone-300 border-y border-rose-950/60 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           
           <div className="flex items-center gap-2 shrink-0">
-            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
-            <span className="font-mono text-xs font-bold text-slate-400 uppercase tracking-wider">
+            <span className="w-2 h-2 rounded-full bg-rose-500"></span>
+            <span className="font-mono text-xs font-bold text-stone-400 uppercase tracking-wider">
               Core Tech Stack:
             </span>
           </div>
@@ -36,9 +36,9 @@ export function TrustStrip() {
               return (
                 <div
                   key={idx}
-                  className="px-3 py-1.5 rounded-lg bg-slate-950/60 border border-slate-800 text-slate-300 hover:text-sky-400 hover:border-sky-500/40 transition-colors shrink-0 flex items-center gap-1.5"
+                  className="px-3 py-1.5 rounded-lg bg-stone-900 border border-rose-950/60 text-stone-300 hover:text-rose-300 hover:border-rose-800/40 transition-colors shrink-0 flex items-center gap-1.5"
                 >
-                  <Icon className="w-3.5 h-3.5 text-sky-400" />
+                  <Icon className="w-3.5 h-3.5 text-rose-400" />
                   <span>{tech.name}</span>
                 </div>
               );

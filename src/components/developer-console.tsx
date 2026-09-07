@@ -48,7 +48,7 @@ export function DeveloperConsole() {
         res = "Featured Projects: 1) OMS (Enterprise ERP/RBAC), 2) Zyvora (E-Commerce Store), 3) Backbone Academy (EdTech Platform), 4) Snapclass (Classroom Manager).";
         break;
       case "contact":
-        res = `Email: ${profile.email} · GitHub: github.com/roushanverma · LinkedIn: linkedin.com/in/roushanverma`;
+        res = `Email: ${profile.email} · GitHub: github.com/vermapower564 · LinkedIn: linkedin.com/in/roushanverma`;
         break;
       case "clear":
         setHistory([]);
@@ -90,7 +90,7 @@ export function DeveloperConsole() {
             <span className="w-2.5 h-2.5 rounded-full bg-slate-700 inline-block"></span>
           </div>
           <span className="ml-2 text-slate-400 text-xs font-mono flex items-center gap-1.5">
-            <Terminal className="w-3.5 h-3.5 text-sky-400" />
+            <Terminal className="w-3.5 h-3.5 text-rose-400" />
             roushan@dev-workstation:~
           </span>
         </div>
@@ -116,12 +116,12 @@ export function DeveloperConsole() {
       {/* Console Content */}
       <div className="p-4 max-h-[280px] overflow-y-auto space-y-3 scrollbar-thin scrollbar-thumb-slate-800">
         <div className="text-slate-400 text-[11px] pb-2 border-b border-slate-800/60 font-sans">
-          Developer Workstation Shell — Type <span className="text-sky-400 font-semibold font-mono">help</span> to explore.
+          Developer Workstation Shell — Type <span className="text-rose-400 font-semibold font-mono">help</span> to explore.
         </div>
 
         {history.map((item, idx) => (
           <div key={idx} className="space-y-1">
-            <div className="flex items-center gap-2 text-sky-400">
+            <div className="flex items-center gap-2 text-rose-400">
               <span className="text-emerald-400">$</span>
               <span className="font-semibold">{item.command}</span>
             </div>

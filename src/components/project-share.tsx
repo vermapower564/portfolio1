@@ -43,10 +43,10 @@ export function ProjectShare({ title, url }: ProjectShareProps) {
   const twitterShare = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
 
   return (
-    <div className="p-4 rounded-2xl bg-slate-900 border border-slate-800 space-y-3 font-mono text-xs">
+    <div className="p-4 rounded-2xl bg-stone-900 border border-rose-950/60 space-y-3 font-mono text-xs">
       <div className="flex items-center justify-between">
-        <span className="text-slate-300 font-bold flex items-center gap-2">
-          <Share2 className="w-4 h-4 text-sky-400" />
+        <span className="text-stone-300 font-bold flex items-center gap-2">
+          <Share2 className="w-4 h-4 text-rose-400" />
           Share This Project Case Study
         </span>
         {copied && (
@@ -60,7 +60,7 @@ export function ProjectShare({ title, url }: ProjectShareProps) {
         {/* Copy Link Trigger */}
         <button
           onClick={handleCopyLink}
-          className="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold border border-slate-700 transition-colors flex items-center gap-2"
+          className="px-3.5 py-2 rounded-xl bg-stone-800 hover:bg-stone-700 text-stone-200 font-semibold border border-stone-700 transition-colors flex items-center gap-2"
         >
           {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Link className="w-3.5 h-3.5" />}
           <span>{copied ? "Link Copied!" : "Copy Link"}</span>
@@ -69,9 +69,9 @@ export function ProjectShare({ title, url }: ProjectShareProps) {
         {/* Web Share API */}
         <button
           onClick={handleNativeShare}
-          className="px-3.5 py-2 rounded-xl bg-sky-600/20 hover:bg-sky-600/30 text-sky-300 font-semibold border border-sky-500/30 transition-colors flex items-center gap-2"
+          className="px-3.5 py-2 rounded-xl bg-rose-950 text-rose-300 hover:bg-rose-900 font-semibold border border-rose-800/40 transition-colors flex items-center gap-2"
         >
-          <Share2 className="w-3.5 h-3.5 text-sky-400" />
+          <Share2 className="w-3.5 h-3.5 text-rose-400" />
           <span>Web Share</span>
         </button>
 
@@ -80,7 +80,7 @@ export function ProjectShare({ title, url }: ProjectShareProps) {
           href={linkedInShare}
           target="_blank"
           rel="noreferrer"
-          className="p-2 rounded-xl bg-slate-800 hover:bg-sky-900/40 text-slate-300 hover:text-sky-400 border border-slate-700 transition-colors"
+          className="p-2 rounded-xl bg-stone-800 hover:bg-rose-950/40 text-stone-300 hover:text-rose-400 border border-stone-700 transition-colors"
           aria-label="Share on LinkedIn"
         >
           <Linkedin className="w-4 h-4" />
@@ -91,7 +91,7 @@ export function ProjectShare({ title, url }: ProjectShareProps) {
           href={whatsAppShare}
           target="_blank"
           rel="noreferrer"
-          className="p-2 rounded-xl bg-slate-800 hover:bg-emerald-900/40 text-slate-300 hover:text-emerald-400 border border-slate-700 transition-colors"
+          className="p-2 rounded-xl bg-stone-800 hover:bg-emerald-950/40 text-stone-300 hover:text-emerald-400 border border-stone-700 transition-colors"
           aria-label="Share on WhatsApp"
         >
           <MessageCircle className="w-4 h-4" />

@@ -54,18 +54,18 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-50/50 dark:bg-slate-950/40 border-t border-slate-200/80 dark:border-slate-800/80">
+    <section id="contact" className="py-20 bg-stone-50 dark:bg-[#0f0a0d] border-t border-stone-200 dark:border-rose-950/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 text-sky-500 font-mono text-xs font-semibold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-900/10 dark:bg-rose-950/40 text-rose-900 dark:text-rose-300 font-mono text-xs font-semibold uppercase tracking-wider border border-rose-900/20">
             Initiate Contact
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 dark:text-white tracking-tight">
             Let's Build Production Software Together
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
+          <p className="text-stone-600 dark:text-stone-400 text-base sm:text-lg">
             Have a project, engineering role, or full-stack opportunity? Drop a message below or call directly.
           </p>
         </div>
@@ -75,9 +75,9 @@ export function Contact() {
           {/* Left Column: Direct Contact Info */}
           <div className="lg:col-span-5 space-y-6">
             
-            <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white font-mono flex items-center gap-2">
-                <MessageSquare className="w-5 h-5 text-sky-500" />
+            <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-stone-900/80 border border-stone-200 dark:border-rose-950/60 shadow-sm space-y-6">
+              <h3 className="text-xl font-bold text-stone-900 dark:text-white font-mono flex items-center gap-2">
+                <MessageSquare className="w-5 h-5 text-rose-900 dark:text-rose-400" />
                 Direct Channels
               </h3>
 
@@ -85,16 +85,16 @@ export function Contact() {
                 {/* Direct Call / Phone */}
                 <a
                   href={profile.phoneTel}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 hover:border-emerald-500 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-rose-950/60 hover:border-emerald-500 transition-colors group"
                 >
-                  <div className="p-3 rounded-lg bg-emerald-500/10 text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                  <div className="p-3 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-slate-400">Phone / Click to Call</div>
-                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 font-mono flex items-center gap-2">
+                    <div className="text-xs font-mono text-stone-500 dark:text-stone-400">Phone / Click to Call</div>
+                    <div className="text-sm font-semibold text-stone-900 dark:text-stone-200 font-mono flex items-center gap-2">
                       <span>{profile.phone}</span>
-                      <PhoneCall className="w-3.5 h-3.5 text-emerald-400" />
+                      <PhoneCall className="w-3.5 h-3.5 text-emerald-500" />
                     </div>
                   </div>
                 </a>
@@ -102,14 +102,14 @@ export function Contact() {
                 {/* Email */}
                 <a
                   href={`mailto:${profile.email}`}
-                  className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 hover:border-sky-500 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-rose-950/60 hover:border-rose-800 transition-colors group"
                 >
-                  <div className="p-3 rounded-lg bg-sky-500/10 text-sky-500 group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                  <div className="p-3 rounded-lg bg-rose-900/10 text-rose-900 dark:text-rose-400 group-hover:bg-rose-900 group-hover:text-white transition-colors">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-slate-400">Direct Email</div>
-                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 font-mono">{profile.email}</div>
+                    <div className="text-xs font-mono text-stone-500 dark:text-stone-400">Direct Email</div>
+                    <div className="text-sm font-semibold text-stone-900 dark:text-stone-200 font-mono">{profile.email}</div>
                   </div>
                 </a>
 
@@ -118,14 +118,14 @@ export function Contact() {
                   href={profile.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 hover:border-sky-500 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-rose-950/60 hover:border-rose-800 transition-colors group"
                 >
-                  <div className="p-3 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-800 dark:text-slate-200 group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                  <div className="p-3 rounded-lg bg-stone-200 dark:bg-stone-800 text-stone-800 dark:text-stone-200 group-hover:bg-rose-900 group-hover:text-white transition-colors">
                     <Github className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-slate-400">GitHub Profile ({profile.displayName})</div>
-                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 font-mono">github.com/vermapower564</div>
+                    <div className="text-xs font-mono text-stone-500 dark:text-stone-400">GitHub Profile ({profile.displayName})</div>
+                    <div className="text-sm font-semibold text-stone-900 dark:text-stone-200 font-mono">github.com/vermapower564</div>
                   </div>
                 </a>
 
@@ -134,19 +134,19 @@ export function Contact() {
                   href={profile.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60 hover:border-sky-500 transition-colors group"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-200 dark:border-rose-950/60 hover:border-rose-800 transition-colors group"
                 >
-                  <div className="p-3 rounded-lg bg-indigo-500/10 text-indigo-500 group-hover:bg-sky-500 group-hover:text-white transition-colors">
+                  <div className="p-3 rounded-lg bg-rose-900/10 text-rose-900 dark:text-rose-400 group-hover:bg-rose-900 group-hover:text-white transition-colors">
                     <Linkedin className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono text-slate-400">LinkedIn Profile</div>
-                    <div className="text-sm font-semibold text-slate-800 dark:text-slate-200 font-mono">linkedin.com/in/roushanverma</div>
+                    <div className="text-xs font-mono text-stone-500 dark:text-stone-400">LinkedIn Profile</div>
+                    <div className="text-sm font-semibold text-stone-900 dark:text-stone-200 font-mono">linkedin.com/in/roushanverma</div>
                   </div>
                 </a>
               </div>
 
-              <div className="pt-2 text-xs font-mono text-slate-400 leading-relaxed">
+              <div className="pt-2 text-xs font-mono text-stone-500 dark:text-stone-400 leading-relaxed">
                 Response SLA: Typically within 24 hours for engineering inquiries and project discussions.
               </div>
             </div>
@@ -155,13 +155,13 @@ export function Contact() {
 
           {/* Right Column: Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-6">
+            <div className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-stone-900/80 border border-stone-200 dark:border-rose-950/60 shadow-sm space-y-6">
               
               <div className="space-y-1">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white font-mono">
+                <h3 className="text-xl font-bold text-stone-900 dark:text-white font-mono">
                   Send a Direct Message
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-stone-500 dark:text-stone-400">
                   Form sends directly to my developer inbox via Nodemailer / SMTP.
                 </p>
               </div>
@@ -185,8 +185,8 @@ export function Contact() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Name Input */}
                   <div className="space-y-1.5">
-                    <label htmlFor="name" className="block text-xs font-mono text-slate-700 dark:text-slate-300 font-semibold">
-                      Your Name <span className="text-rose-500">*</span>
+                    <label htmlFor="name" className="block text-xs font-mono text-stone-700 dark:text-stone-300 font-semibold">
+                      Your Name <span className="text-rose-700">*</span>
                     </label>
                     <input
                       type="text"
@@ -196,14 +196,14 @@ export function Contact() {
                       onChange={handleChange}
                       placeholder="e.g. Alex Johnson"
                       required
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      className="w-full px-4 py-2.5 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-300 dark:border-rose-950/60 text-stone-900 dark:text-white placeholder-stone-400 text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-rose-800"
                     />
                   </div>
 
                   {/* Email Input */}
                   <div className="space-y-1.5">
-                    <label htmlFor="email" className="block text-xs font-mono text-slate-700 dark:text-slate-300 font-semibold">
-                      Email Address <span className="text-rose-500">*</span>
+                    <label htmlFor="email" className="block text-xs font-mono text-stone-700 dark:text-stone-300 font-semibold">
+                      Email Address <span className="text-rose-700">*</span>
                     </label>
                     <input
                       type="email"
@@ -213,14 +213,14 @@ export function Contact() {
                       onChange={handleChange}
                       placeholder="alex@company.com"
                       required
-                      className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-sky-500"
+                      className="w-full px-4 py-2.5 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-300 dark:border-rose-950/60 text-stone-900 dark:text-white placeholder-stone-400 text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-rose-800"
                     />
                   </div>
                 </div>
 
                 {/* Subject Input */}
                 <div className="space-y-1.5">
-                  <label htmlFor="subject" className="block text-xs font-mono text-slate-700 dark:text-slate-300 font-semibold">
+                  <label htmlFor="subject" className="block text-xs font-mono text-stone-700 dark:text-stone-300 font-semibold">
                     Subject
                   </label>
                   <input
@@ -230,14 +230,14 @@ export function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     placeholder="Full-Stack Opportunity / Project Inquiry"
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-sky-500"
+                    className="w-full px-4 py-2.5 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-300 dark:border-rose-950/60 text-stone-900 dark:text-white placeholder-stone-400 text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-rose-800"
                   />
                 </div>
 
                 {/* Message Input */}
                 <div className="space-y-1.5">
-                  <label htmlFor="message" className="block text-xs font-mono text-slate-700 dark:text-slate-300 font-semibold">
-                    Message Content <span className="text-rose-500">*</span>
+                  <label htmlFor="message" className="block text-xs font-mono text-stone-700 dark:text-stone-300 font-semibold">
+                    Message Content <span className="text-rose-700">*</span>
                   </label>
                   <textarea
                     id="message"
@@ -247,7 +247,7 @@ export function Contact() {
                     onChange={handleChange}
                     placeholder="Describe your project, role, or technical requirements..."
                     required
-                    className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-sky-500 resize-none"
+                    className="w-full px-4 py-2.5 rounded-xl bg-stone-50 dark:bg-stone-950 border border-stone-300 dark:border-rose-950/60 text-stone-900 dark:text-white placeholder-stone-400 text-xs sm:text-sm font-sans focus:outline-none focus:ring-2 focus:ring-rose-800 resize-none"
                   ></textarea>
                 </div>
 
@@ -255,7 +255,7 @@ export function Contact() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="w-full py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-mono text-sm font-semibold transition-all shadow-lg shadow-sky-600/25 flex items-center justify-center gap-2 disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-sky-500"
+                  className="w-full py-3.5 rounded-xl bg-rose-900 hover:bg-rose-950 text-white font-mono text-sm font-semibold transition-all shadow-sm flex items-center justify-center gap-2 disabled:opacity-50 focus:outline-none focus:ring-2 focus:ring-rose-800"
                 >
                   {status === "submitting" ? (
                     <>

@@ -29,19 +29,19 @@ export function Skills({ onSelectSkill }: SkillsProps) {
   };
 
   return (
-    <section id="skills" className="py-20 bg-white dark:bg-slate-950">
+    <section id="skills" className="py-20 bg-stone-50 dark:bg-[#0f0a0d]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 font-mono text-xs font-semibold uppercase tracking-wider">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-900/10 dark:bg-rose-950/40 text-rose-900 dark:text-rose-300 font-mono text-xs font-semibold uppercase tracking-wider border border-rose-900/20">
             Technical Stack
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-stone-900 dark:text-white tracking-tight">
             Production-Tested Technologies & Tools
           </h2>
-          <p className="text-slate-600 dark:text-slate-400 text-base sm:text-lg">
-            Categorized skills across the full-stack web engineering spectrum. <span className="text-sky-500 font-medium">Click any skill to highlight projects using that technology.</span>
+          <p className="text-stone-600 dark:text-stone-400 text-base sm:text-lg">
+            Categorized skills across the full-stack web engineering spectrum. <span className="text-rose-900 dark:text-rose-400 font-medium">Click any skill to highlight projects using that technology.</span>
           </p>
         </div>
 
@@ -51,10 +51,10 @@ export function Skills({ onSelectSkill }: SkillsProps) {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 ${
+              className={`px-4 py-2 rounded-xl text-xs sm:text-sm font-mono font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rose-800 ${
                 activeCategory === cat
-                  ? "bg-slate-900 dark:bg-sky-500 text-white shadow-md shadow-sky-500/20"
-                  : "bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800"
+                  ? "bg-rose-900 text-white shadow-sm"
+                  : "bg-white dark:bg-stone-900 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-rose-950/60 hover:bg-stone-200/70 dark:hover:bg-stone-800"
               }`}
             >
               {cat}
@@ -67,14 +67,14 @@ export function Skills({ onSelectSkill }: SkillsProps) {
           {filteredGroups.map((group, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl bg-slate-50/70 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800/80 hover:border-sky-500/40 transition-all duration-300 space-y-5 group hover:shadow-xl hover:shadow-sky-500/5"
+              className="p-6 rounded-2xl bg-white dark:bg-stone-900/80 border border-stone-200 dark:border-rose-950/60 hover:border-rose-800/40 transition-all duration-300 space-y-5 group hover:shadow-lg"
             >
               <div className="space-y-1">
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white font-mono flex items-center gap-2">
-                  <Terminal className="w-4 h-4 text-sky-500" />
+                <h3 className="text-lg font-bold text-stone-900 dark:text-white font-mono flex items-center gap-2">
+                  <Terminal className="w-4 h-4 text-rose-900 dark:text-rose-400" />
                   {group.title}
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs text-stone-500 dark:text-stone-400">
                   {group.description}
                 </p>
               </div>
@@ -88,8 +88,8 @@ export function Skills({ onSelectSkill }: SkillsProps) {
                     title={`Highlight projects built with ${skill.name}`}
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 flex items-center gap-1.5 hover:scale-105 cursor-pointer text-left ${
                       skill.highlight
-                        ? "bg-sky-500/10 dark:bg-sky-500/15 text-sky-600 dark:text-sky-300 border border-sky-500/30 font-semibold hover:bg-sky-500 hover:text-white"
-                        : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700/60 hover:bg-slate-200 dark:hover:bg-slate-700"
+                        ? "bg-rose-900/10 dark:bg-rose-950/40 text-rose-900 dark:text-rose-300 border border-rose-900/20 dark:border-rose-800/30 font-semibold hover:bg-rose-900 hover:text-white"
+                        : "bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 border border-stone-200 dark:border-stone-700/60 hover:bg-stone-200 dark:hover:bg-stone-700"
                     }`}
                   >
                     <span>{skill.name}</span>
