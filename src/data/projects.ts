@@ -19,7 +19,13 @@ export interface Project {
     backend: string;
     database: string;
     services: string[];
+    dataFlowExplanation?: string;
   };
+  challenges: string[];
+  demonstrates: string[];
+  status: "Active Development" | "Core Features Implemented" | "Production Preparation" | "Recently Updated";
+  currentlyBuilding?: boolean;
+  currentlyBuildingNote?: string;
   githubUrl?: string;
   liveUrl?: string;
 }
@@ -53,13 +59,29 @@ export const projects: Project[] = [
       "Implemented transactional operations for payroll and attendance ledger consistency",
       "Designed RESTful endpoints with structured payload validation and centralized error logging"
     ],
+    challenges: [
+      "Architecting 5-level hierarchical RBAC middleware (Admin -> PM -> TL -> Employee) without compounding database query latency",
+      "Ensuring transactional consistency across employee attendance records and salary/payroll calculation ledgers",
+      "Designing relational schemas optimized for multi-level project assignment tree queries"
+    ],
+    demonstrates: [
+      "Full-Stack Enterprise Architecture",
+      "Multi-Tier Role-Based Access Control (RBAC)",
+      "Relational Database Design & Transactional Integrity",
+      "RESTful API Architecture & Payload Safety",
+      "Managerial Analytics & Corporate Workflow Automation"
+    ],
+    status: "Active Development",
+    currentlyBuilding: true,
+    currentlyBuildingNote: "Refining multi-tier role permission middleware and building real-time managerial analytics for project workload tracking.",
     architecture: {
       frontend: "Next.js / React with Tailwind CSS & Dynamic Role Dashboards",
       api: "RESTful API Routes with JSON Web Token (JWT) Bearer Verification",
       auth: "Multi-Tier Role-Based Access Control (RBAC) Middleware",
       backend: "Node.js & Express.js Application Server",
       database: "MySQL / TiDB Cloud managed via Prisma ORM",
-      services: ["Cloudinary File Storage", "Automated Email Alerts"]
+      services: ["Cloudinary File Storage", "Automated Email Alerts"],
+      dataFlowExplanation: "HTTP requests carrying JWT bearer tokens pass through strict 5-tier RBAC guard middleware. Verified requests interact with Node.js/Express service controllers, executing Prisma ORM queries against MySQL/TiDB Cloud and dispatching media assets to Cloudinary."
     },
     githubUrl: "https://github.com/vermapower564/operations-management-system",
     liveUrl: "https://oms-platform.demo.dev"
@@ -90,13 +112,29 @@ export const projects: Project[] = [
       "Implemented optimistic cart UI updates reducing perceived latency to zero",
       "Integrated Cloudinary image optimizations with responsive srcsets and WebP formatting"
     ],
+    challenges: [
+      "Eliminating UI latency in multi-criteria product filtering and catalog sorting algorithms",
+      "Handling optimistic cart state synchronization across client-side state and cookie-backed user sessions",
+      "Managing secure JWT cookie lifecycle with CSRF mitigation and route protection"
+    ],
+    demonstrates: [
+      "E-Commerce Full-Stack System Design",
+      "Optimistic UI & Client State Synchronization",
+      "Relational Database Modeling for Catalogs & Orders",
+      "Cloud Image Optimization & CDN Asset Pipelines",
+      "JWT Cookie Authentication & Route Guarding"
+    ],
+    status: "Production Preparation",
+    currentlyBuilding: true,
+    currentlyBuildingNote: "Optimizing checkout state persistence and Cloudinary image transformation pipelines for sub-second page loads.",
     architecture: {
       frontend: "Next.js App Router & Tailwind CSS UI",
       api: "Express.js RESTful API Endpoints",
       auth: "Encrypted JWT Cookie Authentication",
       backend: "Node.js Express Server",
       database: "MySQL Database mapped via Prisma ORM",
-      services: ["Cloudinary Media Cloud"]
+      services: ["Cloudinary Media Cloud"],
+      dataFlowExplanation: "Next.js App Router client manages optimistic cart state and dispatches API requests to Node/Express REST endpoints. Prisma ORM queries MySQL database for products/orders, while Cloudinary serves responsive WebP media."
     },
     githubUrl: "https://github.com/vermapower564/zyvora-ecommerce",
     liveUrl: "https://zyvora-store.demo.dev"
@@ -129,13 +167,29 @@ export const projects: Project[] = [
       "Leveraged TiDB Cloud distributed MySQL database for ultra-fast query execution and zero-downtime scaling",
       "Implemented direct-to-Cloudinary signed file upload pipeline for course materials"
     ],
+    challenges: [
+      "Decoupling public academy marketing portal from internal student/faculty administration while sharing unified auth APIs",
+      "Implementing secure SMTP Nodemailer OTP verification for password resets and critical account updates",
+      "Optimizing TiDB Cloud distributed queries for real-time exam transcripts and fee payment ledgers"
+    ],
+    demonstrates: [
+      "Dual-Engine Frontend Architecture",
+      "OTP Authentication & Session Security",
+      "Cloud Database Integration (TiDB Cloud Distributed MySQL)",
+      "Media & Document Asset Pipeline (Cloudinary CDN)",
+      "Automated Email Notification Systems (SMTP/Nodemailer)"
+    ],
+    status: "Active Development",
+    currentlyBuilding: true,
+    currentlyBuildingNote: "Enhancing Nodemailer OTP verification fallback handling and optimizing exam gradebook PDF report rendering.",
     architecture: {
       frontend: "React + Vite SPA with Dual Public/Admin Layout Controllers",
       api: "Node.js & Express.js REST API with Rate-Limiting & Input Validation",
       auth: "JWT Session Tokens + SMTP OTP Verification Workflow",
       backend: "Node.js Micro-Server Architecture",
       database: "TiDB Cloud Distributed MySQL",
-      services: ["Cloudinary Asset CDN", "Nodemailer SMTP Dispatcher"]
+      services: ["Cloudinary Asset CDN", "Nodemailer SMTP Dispatcher"],
+      dataFlowExplanation: "React/Vite client sends requests to Node.js/Express microservices. Authentication requests trigger Nodemailer SMTP OTP dispatch, while database operations query TiDB Cloud distributed MySQL and Cloudinary handles assignment media assets."
     },
     githubUrl: "https://github.com/vermapower564/backbone-academy",
     liveUrl: "https://backbone-academy.demo.dev"
@@ -165,13 +219,26 @@ export const projects: Project[] = [
       "Batch attendance database upsert queries for fast multi-student recording",
       "Clean server-side rendered dashboard components for instant page loads"
     ],
+    challenges: [
+      "Achieving 100% end-to-end static type safety from Next.js App Router server components down to Prisma database schemas",
+      "Designing high-speed batch attendance upsert queries for multi-student class rosters"
+    ],
+    demonstrates: [
+      "Type-Safe Next.js Full-Stack Engineering",
+      "Server-Side Rendered Dynamic Dashboards",
+      "Prisma Relational Database Modeling",
+      "Role-Based Dashboard Layouts"
+    ],
+    status: "Recently Updated",
+    currentlyBuilding: false,
     architecture: {
       frontend: "Next.js App Router Server & Client Components",
       api: "Next.js Server Actions & API Routes",
       auth: "Role-Based Session Management",
       backend: "Next.js Node.js Runtime",
       database: "MySQL with Prisma ORM Schemas",
-      services: ["Vercel Edge Network"]
+      services: ["Vercel Edge Network"],
+      dataFlowExplanation: "Next.js App Router server components execute server actions and Prisma client calls directly against MySQL database, delivering instant server-rendered HTML views to teachers and students."
     },
     githubUrl: "https://github.com/vermapower564/snapclass-app",
     liveUrl: "https://snapclass.demo.dev"

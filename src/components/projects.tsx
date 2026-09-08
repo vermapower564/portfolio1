@@ -60,13 +60,18 @@ export function Projects() {
               <div className="space-y-5">
                 
                 {/* Header Badge */}
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
                   <span className="px-3 py-1 rounded-full bg-rose-900/10 dark:bg-rose-950/40 text-rose-900 dark:text-rose-300 border border-rose-900/20 font-mono text-xs font-semibold">
                     {project.badge}
                   </span>
-                  <span className="text-xs font-mono text-stone-500">
-                    {project.category}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="px-2 py-0.5 rounded bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 font-mono text-[11px]">
+                      {project.status}
+                    </span>
+                    <span className="text-xs font-mono text-stone-500">
+                      {project.category}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Project Title & Short Desc */}
@@ -87,7 +92,7 @@ export function Projects() {
                     Key Highlight
                   </div>
                   <div className="text-xs text-stone-700 dark:text-stone-300 font-mono flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-rose-900 dark:text-rose-400 shrink-0" />
                     <span>{project.features[0]}</span>
                   </div>
                 </div>

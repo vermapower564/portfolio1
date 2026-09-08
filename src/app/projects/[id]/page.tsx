@@ -1,11 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, Github, CheckCircle2, Cpu, ShieldCheck, Layers, Share2 } from "lucide-react";
-import { projects, Project } from "@/data/projects";
+import { ArrowLeft, ExternalLink, Github, CheckCircle2, Cpu, ShieldCheck, Layers, AlertCircle, Wrench, Award } from "lucide-react";
+import { projects } from "@/data/projects";
 import { Navbar } from "@/components/navbar";
 import { ArchitectureDiagram } from "@/components/architecture-diagram";
 import { ProjectShare } from "@/components/project-share";
+import { PortfolioCTA } from "@/components/portfolio-cta";
 import { Footer } from "@/components/footer";
 
 export async function generateStaticParams() {
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: { params: { id: string } }): 
     title: `${project.name} Case Study — Roushan Kumar Verma`,
     description: project.shortDescription,
     openGraph: {
-      title: `${project.name} — Full-Stack Case Study`,
+      title: `${project.name} — Full-Stack Technical Case Study`,
       description: project.overview,
     },
   };
@@ -45,7 +46,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
           <div>
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-stone-900 border border-stone-300 dark:border-rose-950/60 text-stone-700 dark:text-stone-300 hover:text-rose-900 dark:hover:text-rose-400 font-mono text-xs transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white dark:bg-stone-900 border border-stone-300 dark:border-rose-950/60 text-stone-700 dark:text-stone-300 hover:text-rose-900 dark:hover:text-rose-400 font-mono text-xs transition-colors shadow-sm"
             >
               <ArrowLeft className="w-4 h-4 text-rose-900 dark:text-rose-400" />
               <span>Back to Projects</span>
@@ -53,14 +54,19 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
           </div>
 
           {/* Header Card */}
-          <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-stone-900/90 border border-stone-200 dark:border-rose-950/60 shadow-lg space-y-6">
+          <div className="p-8 sm:p-12 rounded-3xl bg-white dark:bg-[#160d12] border border-stone-200 dark:border-rose-950/60 shadow-lg space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <span className="px-3 py-1 rounded-full bg-rose-900/10 dark:bg-rose-950/40 text-rose-900 dark:text-rose-300 border border-rose-900/20 font-mono text-xs font-semibold">
                 {project.badge}
               </span>
-              <span className="text-xs font-mono text-stone-500">
-                Category: {project.category}
-              </span>
+              <div className="flex items-center gap-3">
+                <span className="text-xs font-mono text-stone-500">
+                  Category: {project.category}
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-stone-100 dark:bg-stone-800 text-stone-700 dark:text-stone-300 font-mono text-[11px]">
+                  {project.status}
+                </span>
+              </div>
             </div>
 
             <div className="space-y-3">
@@ -72,12 +78,18 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
               </p>
             </div>
 
-            <p className="text-base text-stone-700 dark:text-stone-300 leading-relaxed font-sans">
-              {project.overview}
-            </p>
+            {/* Overview */}
+            <div className="space-y-2 pt-2">
+              <h2 className="text-xs font-mono font-bold text-rose-900 dark:text-rose-400 uppercase tracking-wider">
+                1. Project Overview
+              </h2>
+              <p className="text-base text-stone-700 dark:text-stone-300 leading-relaxed font-sans">
+                {project.overview}
+              </p>
+            </div>
 
-            {/* Action Buttons */}
-            <div className="pt-4 flex flex-wrap items-center gap-4">
+            {/* Action Links */}
+            <div className="pt-4 flex flex-wrap items-center gap-4 border-t border-stone-200 dark:border-rose-950/60">
               {project.githubUrl && (
                 <a
                   href={project.githubUrl}
@@ -85,7 +97,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   rel="noreferrer"
                   className="px-5 py-3 rounded-xl bg-stone-100 dark:bg-stone-800 hover:bg-stone-200 dark:hover:bg-stone-700 text-stone-900 dark:text-white font-mono text-xs font-semibold flex items-center gap-2 border border-stone-300 dark:border-stone-700 transition-colors"
                 >
-                  <Github className="w-4 h-4" />
+                  <Github className="w-4 h-4 text-rose-900 dark:text-rose-400" />
                   <span>GitHub Repository</span>
                 </a>
               )}
@@ -103,78 +115,64 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
             </div>
           </div>
 
-          {/* Problem & Solution Cards */}
+          {/* Problem & Solution Section */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-slate-900 border border-slate-800 space-y-3">
-              <h3 className="text-xs font-mono font-bold text-rose-400 uppercase tracking-wider">
-                The Real-World Problem
+            
+            {/* 2. The Problem */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#160d12] border border-stone-200 dark:border-rose-950/60 space-y-4">
+              <h3 className="text-xs font-mono font-bold text-rose-900 dark:text-rose-400 uppercase tracking-wider flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-rose-900 dark:text-rose-400" />
+                2. The Problem Solved
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans">
                 {project.problem}
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-sky-950/40 border border-sky-500/30 space-y-3">
-              <h3 className="text-xs font-mono font-bold text-sky-400 uppercase tracking-wider">
-                The Technical Solution
+            {/* 3. The Solution */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-white dark:bg-[#160d12] border border-stone-200 dark:border-rose-950/60 space-y-4">
+              <h3 className="text-xs font-mono font-bold text-rose-900 dark:text-rose-400 uppercase tracking-wider flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-rose-900 dark:text-rose-400" />
+                3. The System Solution
               </h3>
-              <p className="text-sm text-slate-300 leading-relaxed">
+              <p className="text-sm text-stone-700 dark:text-stone-300 leading-relaxed font-sans">
                 {project.solution}
               </p>
             </div>
+
           </div>
 
-          {/* Architecture Visual Flow */}
+          {/* 4. Multi-Tier System Architecture (Feature 2) */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
-              <Cpu className="w-5 h-5 text-sky-400" />
-              Multi-Tier System Architecture
-            </h3>
             <ArchitectureDiagram projectId={project.id} />
           </div>
 
-          {/* Core Features */}
-          <div className="p-8 rounded-3xl bg-slate-900 border border-slate-800 space-y-6">
-            <h3 className="text-xl font-bold text-white font-mono flex items-center gap-2">
-              <Layers className="w-5 h-5 text-emerald-400" />
-              System Capabilities & Features
+          {/* 5. Key Features */}
+          <div className="p-8 rounded-3xl bg-white dark:bg-[#160d12] border border-stone-200 dark:border-rose-950/60 space-y-6">
+            <h3 className="text-xl font-bold text-stone-900 dark:text-white font-mono flex items-center gap-2">
+              <Layers className="w-5 h-5 text-rose-900 dark:text-rose-400" />
+              4. Key Features & Capabilities
             </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {project.features.map((feat, idx) => (
-                <div key={idx} className="flex items-start gap-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                  <span className="text-xs sm:text-sm text-slate-300 font-sans">{feat}</span>
+                <div key={idx} className="flex items-start gap-3 p-4 rounded-2xl bg-stone-50 dark:bg-stone-900/60 border border-stone-200 dark:border-rose-950/60">
+                  <CheckCircle2 className="w-4 h-4 text-rose-900 dark:text-rose-400 shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-stone-700 dark:text-stone-300 font-sans">{feat}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Engineering Highlights */}
-          <div className="p-6 sm:p-8 rounded-3xl bg-indigo-950/40 border border-indigo-500/30 space-y-4">
-            <h3 className="text-xs font-mono font-bold text-indigo-300 uppercase tracking-wider flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-indigo-400" />
-              Engineering Highlights & Design Decisions
-            </h3>
-            <ul className="space-y-3">
-              {project.engineeringHighlights.map((hl, idx) => (
-                <li key={idx} className="text-xs sm:text-sm text-slate-300 flex items-start gap-2.5">
-                  <span className="text-indigo-400 font-mono font-bold">•</span>
-                  <span>{hl}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Tech Stack */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-mono text-slate-400 uppercase tracking-wider">
-              Technology Stack Used
+          {/* 6. Technology Stack */}
+          <div className="p-8 rounded-3xl bg-white dark:bg-[#160d12] border border-stone-200 dark:border-rose-950/60 space-y-4">
+            <h3 className="text-xs font-mono font-bold text-rose-900 dark:text-rose-400 uppercase tracking-wider">
+              5. Technology Stack
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.stack.map((t, idx) => (
                 <span
                   key={idx}
-                  className="px-3.5 py-1.5 rounded-xl bg-slate-900 text-slate-200 font-mono text-xs border border-slate-800"
+                  className="px-3.5 py-1.5 rounded-xl bg-stone-100 dark:bg-stone-900 text-stone-800 dark:text-stone-200 font-mono text-xs border border-stone-200 dark:border-rose-950/60 font-medium"
                 >
                   {t}
                 </span>
@@ -182,8 +180,49 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
             </div>
           </div>
 
-          {/* Sharing Bar */}
+          {/* 7. Technical Challenges */}
+          {project.challenges && project.challenges.length > 0 && (
+            <div className="p-8 rounded-3xl bg-white dark:bg-[#160d12] border border-stone-200 dark:border-rose-950/60 space-y-4">
+              <h3 className="text-xs font-mono font-bold text-rose-900 dark:text-rose-400 uppercase tracking-wider flex items-center gap-2">
+                <Wrench className="w-4 h-4 text-rose-900 dark:text-rose-400" />
+                6. Technical Challenges Solved
+              </h3>
+              <ul className="space-y-3">
+                {project.challenges.map((challenge, idx) => (
+                  <li key={idx} className="text-xs sm:text-sm text-stone-700 dark:text-stone-300 flex items-start gap-3">
+                    <span className="text-rose-900 dark:text-rose-400 font-mono font-bold shrink-0 mt-0.5">•</span>
+                    <span className="font-sans">{challenge}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* 8. What This Project Demonstrates */}
+          {project.demonstrates && project.demonstrates.length > 0 && (
+            <div className="p-8 rounded-3xl bg-white dark:bg-[#160d12] border border-stone-200 dark:border-rose-950/60 space-y-4">
+              <h3 className="text-xs font-mono font-bold text-rose-900 dark:text-rose-400 uppercase tracking-wider flex items-center gap-2">
+                <Award className="w-4 h-4 text-rose-900 dark:text-rose-400" />
+                7. What This Project Demonstrates
+              </h3>
+              <div className="flex flex-wrap gap-2.5">
+                {project.demonstrates.map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="px-3.5 py-2 rounded-xl bg-rose-900/10 dark:bg-rose-950/40 text-rose-900 dark:text-rose-300 font-mono text-xs font-semibold border border-rose-900/20"
+                  >
+                    ✓ {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Project Sharing */}
           <ProjectShare title={project.name} url={`/projects/${project.id}`} />
+
+          {/* Call To Action (Feature 4) */}
+          <PortfolioCTA />
 
         </div>
       </main>
