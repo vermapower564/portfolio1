@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import { X, Download, FileText, Mail, Phone, MapPin, Globe, GraduationCap, Code2, Briefcase, Award } from "lucide-react";
 import { profile } from "@/data/profile";
 import { projects } from "@/data/projects";
-import { skillGroups } from "@/data/skills";
+import { skillGroups, SkillCategoryGroup, SkillItem } from "@/data/skills";
 
 interface ResumeModalProps {
   isOpen: boolean;
@@ -74,7 +74,7 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </div>
             <div className="text-xs font-mono text-slate-600 space-y-1 sm:text-right">
               <div>Email: {profile.email}</div>
-              <div>GitHub: github.com/roushanverma</div>
+              <div>GitHub: github.com/vermapower564</div>
               <div>LinkedIn: linkedin.com/in/roushanverma</div>
             </div>
           </div>
@@ -136,10 +136,10 @@ export function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               Technical Skills & Competencies
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-              {skillGroups.map((g, idx) => (
+              {skillGroups.map((g: SkillCategoryGroup, idx: number) => (
                 <div key={idx} className="space-y-1">
                   <span className="font-bold font-mono text-slate-900">{g.title}:</span>
-                  <p className="text-slate-600">{g.skills.map((s) => s.name).join(", ")}</p>
+                  <p className="text-slate-600">{g.skills.map((s: SkillItem) => s.name).join(", ")}</p>
                 </div>
               ))}
             </div>
